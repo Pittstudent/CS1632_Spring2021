@@ -17,8 +17,21 @@ public class RentACatImpl implements RentACat {
 
 	public boolean returnCat(int id) {
 		// TODO
+		for(int i=0;i<cats.length;i++) {
+			Cat thisCat= cats.get(i);
+			if(thisCat.getid()==id) {
+				if(thisCat.getRented()) {
+					thisCat.returnCat();
+					return true;
+				}
+			}
+			
+		}
+		
 		return false;
 	}
+
+	
 
 	/**
 	 * Rent a cat. This should call the .rentCat() method on the cat for the
@@ -32,6 +45,18 @@ public class RentACatImpl implements RentACat {
 
 	public boolean rentCat(int id) {
 		// TODO
+			
+		for(int i=0;i<cats.length;i++) {
+			Cat thisCat= cats.get(i);
+			if(thisCat.getid()==id) {
+				if(!thisCat.getRented()) {
+					thisCat.rentCat();
+					return true;
+				}
+			}
+			
+		}
+		
 		return false;
 	}
 
@@ -47,7 +72,14 @@ public class RentACatImpl implements RentACat {
 
 	public String listCats() {
 		// TODO
-		return "WRITE CODE FOR THIS";
+		
+		String nrcats = "";
+		for(int i=0, i<cats.length;i++)
+			Cat thisCat= cats.get(i);
+			if(thisCat.getRented==false) {
+				nrcats=+ "ID  " + thisCat.getId()+"." +"\n"+ thisCat.getName()+"\n";
+			}
+				
 	}
 
 	/**
@@ -61,6 +93,17 @@ public class RentACatImpl implements RentACat {
 
 	public boolean catExists(int id) {
 		// TODO
+		if (cats == null || cats.size() == 0) {
+			return false;
+		}
+			
+			for(int i=0;i<cats.length;i++) {
+				Cat thisCat= cats.get(i);
+				if(thisCat.getid()==id) {
+					return true;
+				}
+			}
+		
 		return false;
 	}
 

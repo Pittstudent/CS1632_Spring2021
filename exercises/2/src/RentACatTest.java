@@ -35,13 +35,14 @@ public class RentACatTest {
 
 		// 2. Create a mock Cat with ID 1 and name "Jennyanydots", assign to c1
 		// TODO: Fill in
+		c1= new Cat(1,"Jennyanydots");
 		
 		// 3. Create a mock Cat with ID 2 and name "Old Deuteronomy", assign to c2
 		// TODO: Fill in
-
+		c2= new Cat(2,"Old Deuteronomy");
 		// 4. Create a mock Cat with ID 3 and name "Mistoffelees", assign to c3
 		// TODO: Fill in
-		
+		c3= new Cat(3,"Mistoffelees");
 		// Hint: You will have to stub the mocked Cats to make them behave as if the ID
 		// is 1 and name is "Jennyanydots", etc.
 	}
@@ -66,8 +67,10 @@ public class RentACatTest {
 	@Test
 	public void testGetCatNullNumCats0() {
 		// TODO
+		r.getCat(1);
+		
 	}
-
+	
 	/**
 	 * Test case for Cat getCat(int id).
 	 * Preconditions: c1, c2, and c3 are added to r using addCat(Cat c).
@@ -79,6 +82,12 @@ public class RentACatTest {
 	@Test
 	public void testGetCatNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		
+		r.getCat(2);
+		
 	}
 
 	/**
@@ -91,6 +100,7 @@ public class RentACatTest {
 	@Test
 	public void testCatAvailableFalseNumCats0() {
 		// TODO
+		r.catAvailable(2);
 	}
 
 	/**
@@ -104,7 +114,18 @@ public class RentACatTest {
 
 	@Test
 	public void testCatAvailableTrueNumCats3() {
+		
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		
+		c3.rentCat();
+		
+		r.catAvailable(2);
+		
+		
+		
 	}
 
 	/**
@@ -119,6 +140,15 @@ public class RentACatTest {
 	@Test
 	public void testCatAvailableFalseNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		
+		c2.rentCat();
+		
+		r.catAvailable(2);
+		
+		
 	}
 
 	/**
@@ -131,6 +161,10 @@ public class RentACatTest {
 	@Test
 	public void testCatExistsFalseNumCats0() {
 		// TODO
+		
+		c3.rentCat();
+		
+		r.catExists(2);
 	}
 
 	/**
@@ -143,6 +177,13 @@ public class RentACatTest {
 	@Test
 	public void testCatExistsTrueNumCats3() {
 		// TODO
+		
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		
+		r.catExists(2);
+		
 	}
 
 	/**
@@ -155,6 +196,8 @@ public class RentACatTest {
 	@Test
 	public void testListCatsNumCats0() {
 		// TODO
+		
+		r.listCats();
 	}
 
 	/**
@@ -168,6 +211,11 @@ public class RentACatTest {
 	@Test
 	public void testListCatsNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		
+		r.listCats();
 	}
 
 	/**
@@ -180,6 +228,8 @@ public class RentACatTest {
 	@Test
 	public void testRentCatFailureNumCats0() {
 		// TODO
+		
+		r.rentCat(2);
 	}
 
 	/**
@@ -197,6 +247,15 @@ public class RentACatTest {
 	@Test
 	public void testRentCatFailureNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		c2.rentCat();
+		
+		r.rentCat(2);
+		
+		
+		
 	}
 
 	/**
@@ -209,6 +268,7 @@ public class RentACatTest {
 	@Test
 	public void testReturnCatFailureNumCats0() {
 		// TODO
+		r.returnCat(2);
 	}
 
 	/**
@@ -227,5 +287,13 @@ public class RentACatTest {
 	@Test
 	public void testReturnCatNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		c2.rentCat();
+		
+		r.returnCat(2);
+		
+		
 	}
 }
