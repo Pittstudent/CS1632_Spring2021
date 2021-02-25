@@ -17,9 +17,9 @@ public class RentACatImpl implements RentACat {
 
 	public boolean returnCat(int id) {
 		// TODO
-		for(int i=0;i<cats.length;i++) {
+		for(int i=0;i<cats.size();i++) {
 			Cat thisCat= cats.get(i);
-			if(thisCat.getid()==id) {
+			if(thisCat.getId()==id) {
 				if(thisCat.getRented()) {
 					thisCat.returnCat();
 					return true;
@@ -46,9 +46,9 @@ public class RentACatImpl implements RentACat {
 	public boolean rentCat(int id) {
 		// TODO
 			
-		for(int i=0;i<cats.length;i++) {
+		for(int i=0;i<cats.size();i++) {
 			Cat thisCat= cats.get(i);
-			if(thisCat.getid()==id) {
+			if(thisCat.getId()==id) {
 				if(!thisCat.getRented()) {
 					thisCat.rentCat();
 					return true;
@@ -74,12 +74,13 @@ public class RentACatImpl implements RentACat {
 		// TODO
 		
 		String nrcats = "";
-		for(int i=0, i<cats.length;i++)
+		for(int i=0; i<cats.size();i++) {
 			Cat thisCat= cats.get(i);
-			if(thisCat.getRented==false) {
-				nrcats=+ "ID  " + thisCat.getId()+"." +"\n"+ thisCat.getName()+"\n";
+			if(thisCat.getRented()==false) {
+				nrcats= nrcats + "ID  " + thisCat.getId()+"." +"\n"+ thisCat.getName()+"\n";
 			}
-				
+		}		
+		return nrcats;
 	}
 
 	/**
@@ -97,9 +98,9 @@ public class RentACatImpl implements RentACat {
 			return false;
 		}
 			
-			for(int i=0;i<cats.length;i++) {
+			for(int i=0;i<cats.size();i++) {
 				Cat thisCat= cats.get(i);
-				if(thisCat.getid()==id) {
+				if(thisCat.getId()==id) {
 					return true;
 				}
 			}
