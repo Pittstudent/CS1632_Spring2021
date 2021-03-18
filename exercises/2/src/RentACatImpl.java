@@ -77,7 +77,7 @@ public class RentACatImpl implements RentACat {
 		for(int i=0; i<cats.size();i++) {
 			Cat thisCat= cats.get(i);
 			if(thisCat.getRented()==false) {
-				nrcats= nrcats + "ID  " + thisCat.getId()+"." +"\n"+ thisCat.getName()+"\n";
+				nrcats= "ID " + thisCat.getId()+"." +"\n"+ thisCat.getName()+"\n";
 			}
 		}		
 		return nrcats;

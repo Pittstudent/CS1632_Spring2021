@@ -35,7 +35,9 @@ public class RentACatTest {
 
 		// 2. Create a mock Cat with ID 1 and name "Jennyanydots", assign to c1
 		// TODO: Fill in
-		c1= new Cat(1,"Jennyanydots");
+		Cat mockCat= new Mockito.mock(Cat.class);
+		
+		
 		
 		// 3. Create a mock Cat with ID 2 and name "Old Deuteronomy", assign to c2
 		// TODO: Fill in
@@ -67,7 +69,7 @@ public class RentACatTest {
 	@Test
 	public void testGetCatNullNumCats0() {
 		// TODO
-		r.getCat(1);
+		assertNull(r.getCat(2));
 		
 	}
 	
@@ -86,7 +88,8 @@ public class RentACatTest {
 		r.addCat(c2);
 		r.addCat(c3);
 		
-		r.getCat(2);
+		assertNotNull(r.getCat(2));
+		assertEqual(2, r);
 		
 	}
 
@@ -100,7 +103,7 @@ public class RentACatTest {
 	@Test
 	public void testCatAvailableFalseNumCats0() {
 		// TODO
-		r.catAvailable(2);
+		assertFalse(r.catAvailable(2));
 	}
 
 	/**
@@ -122,7 +125,7 @@ public class RentACatTest {
 		
 		c3.rentCat();
 		
-		r.catAvailable(2);
+		assertTrue(r.catAvailable(2));
 		
 		
 		
@@ -146,7 +149,7 @@ public class RentACatTest {
 		
 		c2.rentCat();
 		
-		r.catAvailable(2);
+		assertFalse(r.catAvailable(2));
 		
 		
 	}
@@ -164,7 +167,7 @@ public class RentACatTest {
 		
 		c3.rentCat();
 		
-		r.catExists(2);
+		assertFalse(r.catExists(2));
 	}
 
 	/**
@@ -182,7 +185,7 @@ public class RentACatTest {
 		r.addCat(c2);
 		r.addCat(c3);
 		
-		r.catExists(2);
+		assertTrue(r.catExists(2));
 		
 	}
 
@@ -252,7 +255,7 @@ public class RentACatTest {
 		r.addCat(c3);
 		c2.rentCat();
 		
-		r.rentCat(2);
+		assertFalse(r.rentCat(2));
 		
 		
 		
@@ -292,7 +295,7 @@ public class RentACatTest {
 		r.addCat(c3);
 		c2.rentCat();
 		
-		r.returnCat(2);
+		assertTrue(r.returnCat(2));
 		
 		
 	}
